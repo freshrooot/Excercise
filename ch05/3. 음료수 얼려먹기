@@ -1,0 +1,30 @@
+# 난이도 1.5 | 풀이 시간 30분 | 시간 제한 1초 | 메모리 제한 128MB
+
+N, M = map(int, input().split())
+
+icebox = []
+for _ in range(N):
+  icebox.append(list(map(int, input())))
+
+def dfs(x,y):
+
+  if N <= x or x < 0 or M <= y or y < 0:
+    return False
+
+  if icebox[x][y] == 0:
+    icebox[x][y] = 1
+    dfs(x+1,y)
+    dfs(x-1,y)
+    dfs(x,y+1)
+    dfs(x,y-1)
+    return True
+  return False
+
+result = 0
+for row in range(N):
+  for col in range(M):
+    if dfs(row, col):
+      result += 1
+
+print(result)
+    
