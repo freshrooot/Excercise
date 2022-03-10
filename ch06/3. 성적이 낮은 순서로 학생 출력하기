@@ -1,0 +1,13 @@
+# 난이도 1 | 풀이시간 20분 | 시간제한 1초 | 메모리 제한 128MB | 기출 D 기업 프로그래밍 콘테스트 예선
+
+N = int(input())
+
+info = dict()
+for i in range(N):
+  name, score = input().split()
+  info[name] = int(score)
+
+info = sorted(info.items(), key= lambda item:item[1])
+
+for stu in info:
+  print(stu[0],end=' ')
