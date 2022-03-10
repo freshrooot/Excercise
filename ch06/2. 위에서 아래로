@@ -1,0 +1,11 @@
+# 난이도 1 | 풀이시간 15분 | 시간제한 1초 | 메모리 제한 128MB | 기출 T 기업 코딩 테스트
+
+N = int(input())
+numbers = []
+
+for i in range(N):
+  numbers.append(int(input()))
+
+numbers = sorted(numbers, reverse = True)
+for i in numbers:
+  print(i, end=' ')
