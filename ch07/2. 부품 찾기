@@ -1,0 +1,28 @@
+# 난이도 1.5 | 풀이시간 30분 | 시간제한 1초 | 메모리 제한 128MB
+import sys
+
+N = int(input())
+store = list(map(int, sys.stdin.readline().rstrip().split()))
+M = int(input())
+request = list(map(int, sys.stdin.readline().rstrip().split()))
+
+store = sorted(store)
+
+def binary_search(data, target, start, end):
+  if (start > end):
+    return "No"
+  mid = (start + end) // 2
+
+  if (data[mid] == target):
+    return "Yes"
+  elif (data[mid] < target):
+    return binary_search(data, target, mid+1, end)
+  elif (data[mid] > target):
+    return binary_search(data, target, start, mid-1)
+  
+for target in request:
+  print(binary_search(store, target, 0, N-1),end=' ')
+
+
+
+
