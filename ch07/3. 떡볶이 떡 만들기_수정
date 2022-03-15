@@ -1,0 +1,24 @@
+# 난이도 2 | 풀이시간 40분 | 시간제한 2초 | 메모리 제한 128MB
+
+N, M = map(int, input().split())
+rice_cakes = list(map(int, input().split()))
+
+start = 0
+end = max(rice_cakes)
+
+while True:
+  rice_cake_sum = 0
+  mid = (start + end) // 2
+
+  for rice_cake in rice_cakes:
+    if(rice_cake > mid):
+      rice_cake_sum += rice_cake - mid
+
+  if rice_cake_sum > M:
+    start = mid + 1
+  elif rice_cake_sum < M:
+    end = mid
+  else:
+    print(mid)
+    break
+  
