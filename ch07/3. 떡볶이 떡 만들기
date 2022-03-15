@@ -1,0 +1,19 @@
+# 난이도 2 | 풀이시간 40분 | 시간제한 2초 | 메모리 제한 128MB
+
+N, M = map(int, input().split())
+rice_cakes = list(map(int, input().split()))
+
+rice_cakes.sort(reverse=True)
+rice_cake_sum = 0
+max_hight = rice_cakes[0]
+
+while rice_cake_sum != M:
+  rice_cake_sum = 0
+  max_hight -= 1
+  for rice_cake in rice_cakes:
+      if (rice_cake > max_hight):
+        rice_cake_sum += rice_cake - max_hight
+  
+
+print(max_hight)
+        
