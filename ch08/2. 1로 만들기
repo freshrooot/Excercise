@@ -1,0 +1,20 @@
+# 난이도 1.5 | 풀이시간 20분 | 시간제한 1초 | 메모리 제한 128MB
+
+X = int(input())
+cnt = 0
+num = 1
+def reverse_calcul(X,num,cnt):
+
+  if num == X:
+    print(cnt)
+  
+  elif num * 5 <= X:
+    reverse_calcul(X,num*5,cnt+1)
+
+  elif num * 3 <= X:
+    reverse_calcul(X,num*3,cnt+1)
+
+  elif num + 1 <= X:
+    reverse_calcul(X,num+1,cnt+1)  
+
+reverse_calcul(X,num,cnt)
