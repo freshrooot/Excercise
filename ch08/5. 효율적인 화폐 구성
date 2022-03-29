@@ -1,0 +1,37 @@
+# 난이도 2 | 풀이시간 30분 | 시간제한 1초 | 메모리제한 128MB
+
+N, M = map(int, input().split())
+
+currency = []
+stack = [0] * 10001
+
+for _ in range(N):
+  currency.append(int(input()))
+  stack[currency[-1]] = 1
+
+currency = sorted(currency, reverse=True)
+print(currency)
+print('-----------')
+cnt = 0
+
+while M > 0:
+  
+  for price in currency:
+    print('M-price : ', M-price)
+    if M - price < 0:
+      if price == currency[-1]:
+        cnt = -1
+        M -= price
+      continue
+    elif stack[M-price] == 0:
+      stack[M-price] = 1
+      print(M-price)
+      M -= price
+      cnt += 1
+      break
+    elif stack[M-price] == 1:
+      cnt += 1
+      M -= price
+      
+print('-----------')      
+print(cnt)
