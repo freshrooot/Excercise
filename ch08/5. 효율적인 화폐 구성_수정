@@ -1,0 +1,22 @@
+# 난이도 2 | 풀이시간 30분 | 시간제한 1초 | 메모리제한 128MB
+
+N, M = map(int, input().split())
+
+currency = []
+stack = [10001] * (M+1)
+stack[0] = 0
+
+for _ in range(N):
+  currency.append(int(input()))
+
+currency = currency.sorted()
+
+for i in range(N):
+  for j in range(currency[i], M+1):
+    if stack[j-currency[i]] != 10001:
+      stack[j] = min(stack[j], stack[j-currency[i]]+1)
+
+if stack[M] == 10001:
+  print(-1)
+else:
+  print(stack[M])
